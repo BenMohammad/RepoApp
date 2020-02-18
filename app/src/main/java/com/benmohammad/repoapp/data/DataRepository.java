@@ -14,12 +14,14 @@ import androidx.lifecycle.MutableLiveData;
 import com.benmohammad.repoapp.data.database.DaoCachedProjects;
 import com.benmohammad.repoapp.data.database.DaoSavedProjects;
 import com.benmohammad.repoapp.data.database.GitHubProjectsDatabase;
+import com.benmohammad.repoapp.data.database.ModelBaseGitHubProject;
 import com.benmohammad.repoapp.data.database.ModelCachedGitHubProject;
 import com.benmohammad.repoapp.data.database.ModelSavedGitHubProject;
 import com.benmohammad.repoapp.data.webservice.apiresponse.GitHubClientService;
 import com.benmohammad.repoapp.data.webservice.apiresponse.GitHubRepo;
 import com.benmohammad.repoapp.data.webservice.apiresponse.items.Item;
 import com.benmohammad.repoapp.utils.Configuration;
+import com.benmohammad.repoapp.utils.Utils;
 import com.benmohammad.repoapp.utils.WebServiceMessage;
 
 import java.util.ArrayList;
@@ -140,18 +142,22 @@ public class DataRepository {
                         clearPreviousCache = true;
                         saveLastSearchTerm(searchTerm);
 
-                    } else {
-                        clearPreviousCache = false;
+                    } else clearPreviousCache = false;
+                    cacheProjectsList(gitHubProjectsList, clearPreviousCache);
+                    setLastRefreshDate(new Date());
+                    webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_SUCCESS);
+                } else {
+                    if(pageNumber == 1)
+                        webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NOTHING_FOUND);
+                    else {
+                        webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NO_MORE_RESULTS);
                     }
-
-
-
                 }
             }
 
             @Override
             public void onFailure(Call<GitHubRepo> call, Throwable t) {
-                Log.e("Error", "This is wrong....");
+                webServiceMessageCallStatus.postValue(WebServiceMessage.ON_FAILURE);
             }
         });
     }
@@ -214,8 +220,60 @@ public class DataRepository {
         }
     }
 
+    private static class SavedTableAsyncTask extends AsyncTask<ModelSavedGitHubProject, Void, Void> {
+        private DaoSavedProjects savedProjectsDao;
+        private ActionTypeSaved actionTypeSaved;
+
+        public SavedTableAsyncTask(DaoSavedProjects savedProjectsDao, ActionTypeSaved actionTypeSaved) {
+            this.savedProjectsDao = savedProjectsDao;
+            this.actionTypeSaved = actionTypeSaved;
+        }
+
+        @Override
+        protected Void doInBackground(ModelSavedGitHubProject... savedGitHubProjects) {
+            switch(actionTypeSaved) {
+                case DELETE_SAVED:
+                    savedProjectsDao.delete(savedGitHubProjects[0]);
+                    break;
+                case INSERT_BOOKMARK:
+                    savedProjectsDao.insert(savedGitHubProjects[0]);
+                    break;
+                case DELETE_ALL_SAVED:
+                    savedProjectsDao.deleteAllSavedRepos();
+                    break;
+                case UPDATE_SAVED:
+                    savedProjectsDao.update(savedGitHubProjects[0]);
+                    break;
+                    default:
+                        break;
+            }
+
+            return null;
+        }
+    }
+
+
+    public void bookmarkProject(ModelBaseGitHubProject baseGitHubProject) {
+        new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.INSERT_BOOKMARK)
+                .execute();
+    }
+
+    public void deleteSavedRepo(ModelSavedGitHubProject savedGitHubProject) {
+        new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.DELETE_SAVED)
+                .execute();
+    }
+
+    public void deleteAllSavedRepos(){
+        new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.DELETE_ALL_SAVED).execute();
+    }
 
 
 
+    private enum ActionTypeSaved {
+        DELETE_SAVED,
+        DELETE_ALL_SAVED,
+        UPDATE_SAVED,
+        INSERT_BOOKMARK
+    }
 
 }
