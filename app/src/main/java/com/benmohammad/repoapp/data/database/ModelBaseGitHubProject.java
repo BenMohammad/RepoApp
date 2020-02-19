@@ -48,6 +48,7 @@ public class ModelBaseGitHubProject {
         return prettyUpdatedAt;
     }
 
+    public String getPrettyPushedAt() {return prettyPushedAt;}
 
     public void setId(int id) {
         this.id = id;
