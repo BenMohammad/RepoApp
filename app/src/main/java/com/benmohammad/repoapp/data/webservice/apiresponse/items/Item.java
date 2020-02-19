@@ -68,6 +68,10 @@ public class Item {
         return score;
     }
 
+    public void setScore(float score) {
+        this.score = score;
+    }
+
     public int getForks_count() {
         return forks_count;
     }

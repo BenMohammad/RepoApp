@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="@string/options">
+        <menu>
+            <item
+                android:id="@+id/bookmarks"
+                android:icon="@drawable/bookmarks_24dp"
+                android:title="@string/bookmarks" />
+
+            <item
+                android:id="@+id/share_app"
+                android:icon="@drawable/share_app_24dp"
+                android:title="@string/share_app_nav_drawer" />
+
+            <item
+                android:id="@+id/source_code"
+                android:icon="@drawable/view_code_24dp"
+                android:title="@string/source_code" />
+
+            <item
+                android:id="@+id/other_apps"
+                android:icon="@drawable/more_apps_24dp"
+                android:title="@string/more_apps" />
+
+            <item
+                android:id="@+id/splash_screen"
+                android:icon="@drawable/app_info_24dp"
+                android:title="@string/go_to_tutorial" />
+
+            <item
+                android:id="@+id/about_author"
+                android:icon="@drawable/about_author_24dp"
+                android:title="@string/about_author_nav_drawer" />
+
+        </menu>
+    </item>
+
+</menu>

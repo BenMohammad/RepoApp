@@ -128,7 +128,7 @@ public class DataRepository {
                     currentProject.setPushedAt(responseItem.getPushed_at());
                     currentProject.setUpdatedAt(responseItem.getUpdated_at());
                     currentProject.setHtmlUrl(responseItem.getHtml_url());
-                    currentProject.setAvatarUrl(responseItem.getHtml_url());
+                    currentProject.setAvatarUrl(responseItem.getOwner().getAvatar_url());
                     currentProject.setLanguage(responseItem.getLanguage());
                     currentProject.setForksCount(responseItem.getForks_count());
                     currentProject.setScore(responseItem.getScore());
