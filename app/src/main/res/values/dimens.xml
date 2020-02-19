@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="show_more_button_padding_LR">20dp</dimen>
+    <dimen name="show_more_button_padding_top_and_bottom">3dp</dimen>
+    <dimen name="show_more_button_text_size">23sp</dimen>
+    <dimen name="vertical_repo_name_text">19sp</dimen>
+    <dimen name="vertical_repo_description_text">15sp</dimen>
+    <dimen name="repo_owner_image_height">115dp</dimen>
+    <dimen name="more_button_rounding">20dp</dimen>
+    <dimen name="more_button_outline_stroke_width">1dp</dimen>
+    <dimen name="action_button_text_size">12sp</dimen>
+    <dimen name="image_width_vertical">140dp</dimen>
+    <dimen name="image_layout_margin_right">5dp</dimen>
+    <dimen name="repo_owner_text_size">25sp</dimen>
+    <dimen name="feed_item_margin">5dp</dimen>
+    <dimen name="feed_item_padding">5dp</dimen>
+    <dimen name="view_code_top_margin">5dp</dimen>
+    <dimen name="avatar_drawable_padding">2dp</dimen>
+</resources>

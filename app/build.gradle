@@ -55,5 +55,7 @@ dependencies {
     implementation 'pl.tajchert:waitingdots:0.1.0'
 
     implementation'androidx.browser:browser:1.2.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
 
 }

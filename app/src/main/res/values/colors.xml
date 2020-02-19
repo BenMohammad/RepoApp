@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#262b30</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#9eec3f</color>
+    <color name="repoDescriptionTextColor">#59616a</color>
+    <color name="defaultRepoColor">#ffffff</color>
+    <color name="loadingDotsColor">#b2ff59</color>
+    <color name="whiteColor">#ffffff</color>
+    <color name="showMoreColor">#e8ffe1</color>
+    <color name="moreButtonOutlineColor">#ffc3c3c3</color>
+    <color name="linkColor">#a3a3a3</color>
+    <color name="blackColorLowOpacity">#70000000</color>
+    <color name="black">#000000</color>
 </resources>

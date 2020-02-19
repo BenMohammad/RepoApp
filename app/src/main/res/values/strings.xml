@@ -1,3 +1,63 @@
 <resources>
+
     <string name="app_name">RepoApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="title_activity_saved_repos">Saved GitHub Repositories</string>
+    <string name="show_more_button">\u0020SHOW MORE\u0020</string>
+    <string name="toolbar_subtitle">Search GitHub Repositories</string>
+    <string name="score">Score:\u0020 %1$f</string>
+    <string name="forks_count">Forks:\u0020 %1$d</string>
+    <string name="programming_language">Language:\u0020 %1$s</string>
+    <string name="created_at">Created:\u0020 %1$s</string>
+    <string name="updated_at">Updated:\u0020 %1$s</string>
+    <string name="go_to_tutorial">App info</string>
+    <string name="more_apps">More Apps</string>
+    <string name="about_author_nav_drawer">About Author</string>
+    <string name="share_app_nav_drawer">Share this application</string>
+    <string name="disclaimer">DISCLAIMER</string>
+    <string name="app_disclaimer">This open source mobile app is intended for easier viewing of user generated content on site github.com and educational purposes. The views and opinions expressed in this app are solely those of the users of github.com website. The information contained in this application is for general information purposes only. All product names, logos, and brands are property of their respective owners. </string>
+    <string name="no_play_store">No Play Store installed or web browser</string>
+    <string name="chooser_dialog_title">Share via:</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="source_code">Source Code</string>
+    <string name="bookmark_button_text">BOOKMARK</string>
+    <string name="delete_button_text">Delete</string>
+    <string name="ok_app_info_dialog">OK</string>
+    <string name="share_custom">RepoExplorer shares:</string>
+    <string name="share_custom_desc">Share this repo with:</string>
+    <string name="search_title">Search GitHub</string>
+    <string name="title_activity_details">Project details</string>
+    <string name="owner_details">Owner:\u0020 %1$s</string>
+    <string name="project_name">Project name:\u0020 %1$s</string>
+    <string name="project_size">Project size:\u0020 %1$s KB</string>
+    <string name="written_in_details">Written in:\u0020 %1$s</string>
+    <string name="score_details">Score:\u0020 %1$s points</string>
+    <string name="forks_count_details">Forks count:\u0020 %1$s</string>
+    <string name="has_wiki_details">Wiki:\u0020</string>
+    <string name="project_description_details">Project description:\u0020 %1$s</string>
+    <string name="created_details">Created:\u0020 %1$s</string>
+    <string name="updated_details">Updated:\u0020 %1$s</string>
+    <string name="view_code_button">View Code</string>
+    <string name="pushed_at_details">Pushed:\u0020 %1$s</string>
+    <string name="image_of_the_repository_owner">image of the repository owner</string>
+    <string name="options">Options</string>
+    <string name="view_code">View Code</string>
+    <string name="points_sufix">\u0020points.</string>
+    <string name="project_bookmarked">Project added to bookmarks.</string>
+    <string name="nav_header_app_description">An open source GitHub browser</string>
+    <string name="delete_all_snack">Delete all saved projects?</string>
+    <string name="updating_notification_main">Updating...</string>
+    <string name="fail_to_load_main">Failed to load, check your internet connection.</string>
+    <string name="nothing_found_main">Nothing found for:\u0020 %1$s</string>
+    <string name="no_more_main">No more results</string>
+    <string name="no_browser">No internet browser</string>
+    <string name="project_deleted_toast">Project deleted.</string>
+    <string name="delete_project_snack">Delete this project?</string>
+
+
+
 </resources>
