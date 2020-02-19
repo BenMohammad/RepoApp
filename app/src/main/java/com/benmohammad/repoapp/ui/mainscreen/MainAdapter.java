@@ -94,7 +94,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.CardViewHolder
             actionButton = itemView.findViewById(R.id.action_button);
             showMoreButton = itemView.findViewById(R.id.show_more_button);
             showMoreButton.setOnClickListener(this);
-            entireRowCardView = itemView.findViewById(R.id.entire_view);
+            entireRowCardView = itemView.findViewById(R.id.card_view_entire_row);
             entireRowCardView.setOnClickListener(this);
             actionButton.setCompoundDrawablesWithIntrinsicBounds(R.drawable.bookmarks_24dp, 0, 0, 0);
             if(resources == null) {

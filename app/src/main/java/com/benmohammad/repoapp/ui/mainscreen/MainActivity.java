@@ -28,12 +28,10 @@ import com.benmohammad.repoapp.R;
 import com.benmohammad.repoapp.data.database.ModelCachedGitHubProject;
 import com.benmohammad.repoapp.ui.savedscreen.SavedProjectsActivity;
 import com.benmohammad.repoapp.utils.Utils;
-import com.benmohammad.repoapp.utils.WebServiceMessage;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Collections;
-import java.util.List;
 
 import pl.tajchert.sample.DotsTextView;
 
@@ -62,40 +60,32 @@ public class MainActivity extends AppCompatActivity
         recyclerView.setAdapter(adapter);
 
         mainActivityViewModel = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        mainActivityViewModel.getAllCachedProjects().observe(this, new Observer<List<ModelCachedGitHubProject>>() {
-            @Override
-            public void onChanged(List<ModelCachedGitHubProject> cachedGitHubProjects) {
-                adapter.setList(cachedGitHubProjects);
-            }
-        });
+        mainActivityViewModel.getAllCachedProjects().observe(this, cachedGitHubProjects -> adapter.setList(cachedGitHubProjects));
 
-        mainActivityViewModel.getWebServiceStatus().observe(this, new Observer<WebServiceMessage>() {
-            @Override
-            public void onChanged(WebServiceMessage webServiceMessage) {
-                switch(webServiceMessage) {
-                    case UPDATING_STATUS:
-                        Toast.makeText(MainActivity.this, getString(R.string.updating_notification_main), Toast.LENGTH_SHORT).show();
-                        showDots();
+        mainActivityViewModel.getWebServiceStatus().observe(this, webServiceMessage -> {
+            switch(webServiceMessage) {
+                case UPDATING_STATUS:
+                    Toast.makeText(MainActivity.this, getString(R.string.updating_notification_main), Toast.LENGTH_SHORT).show();
+                    showDots();
+                    break;
+                case ON_FAILURE:
+                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main, Snackbar.LENGTH_SHORT).show();
+                    stopDots();
+                    break;
+                case ON_RESPONSE_SUCCESS:
+                    stopDots();
+                    break;
+                case ON_RESPONSE_NOTHING_FOUND:
+                    Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main, mainActivityViewModel.getSearchTerm()), Snackbar.LENGTH_SHORT).show();
+                    stopDots();
+                    adapter.setList(Collections.<ModelCachedGitHubProject> emptyList());
+                    break;
+                case ON_RESPONSE_NO_MORE_RESULTS:
+                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.no_more_main, Snackbar.LENGTH_SHORT).show();
+                    stopDots();
+                    break;
+                    default:
                         break;
-                    case ON_FAILURE:
-                        Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main, Snackbar.LENGTH_SHORT).show();
-                        stopDots();
-                        break;
-                    case ON_RESPONSE_SUCCESS:
-                        stopDots();
-                        break;
-                    case ON_RESPONSE_NOTHING_FOUND:
-                        Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main, mainActivityViewModel.getSearchTerm()), Snackbar.LENGTH_SHORT).show();
-                        stopDots();
-                        adapter.setList(Collections.<ModelCachedGitHubProject> emptyList());
-                        break;
-                    case ON_RESPONSE_NO_MORE_RESULTS:
-                        Snackbar.make(findViewById(R.id.drawer_layout), R.string.no_more_main, Snackbar.LENGTH_SHORT).show();
-                        stopDots();
-                        break;
-                        default:
-                            break;
-                }
             }
         });
 
@@ -147,12 +137,7 @@ public class MainActivity extends AppCompatActivity
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(getString(R.string.disclaimer)).setMessage(getString(R.string.app_disclaimer))
                 .setCancelable(false)
-                .setNeutralButton(R.string.ok_app_info_dialog, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+                .setNeutralButton(R.string.ok_app_info_dialog, (dialog, which) -> dialog.cancel());
 
         AlertDialog alert = builder.create();
         alert.show();
