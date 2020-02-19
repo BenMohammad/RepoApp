@@ -68,7 +68,6 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         String hasWikiValue = parentIntent.getStringExtra("hasWiki");
         if(hasWikiValue.equalsIgnoreCase("true"))
             hasWikiTv.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_check_circle_green_24dp), null);
-
         else
             hasWikiTv.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.ic_check_circle_red_24dp), null);
         descriptionTv.setText(getString(R.string.project_description_details, parentIntent.getStringExtra("description")));
@@ -82,6 +81,7 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
         }
 
         viewCode.setOnClickListener(this);
+        actionButtonDetails.setOnClickListener(this);
         detailsActivityViewModel= ViewModelProviders.of(this).get(DetailsActivityViewModel.class);
 
     }

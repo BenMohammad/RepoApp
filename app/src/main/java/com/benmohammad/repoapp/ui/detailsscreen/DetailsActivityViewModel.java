@@ -13,9 +13,9 @@ public class DetailsActivityViewModel extends AndroidViewModel {
 
     private DataRepository dataRepository;
 
-    public DetailsActivityViewModel(@NonNull Application application, DataRepository dataRepository) {
+    public DetailsActivityViewModel(@NonNull Application application) {
         super(application);
-        this.dataRepository = dataRepository;
+        this.dataRepository = DataRepository.getInstance(application);
     }
 
     void bookmarkProject(ModelBaseGitHubProject baseGitHubProject) {
