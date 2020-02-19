@@ -96,9 +96,9 @@ public class DataRepository {
 
     public boolean isCacheFreshEnough(Date date) {
         String lastRefreshDate = sharedPreferences.getString("lastRefreshDate", null);
-        if(lastRefreshDate == null) {
+        if(lastRefreshDate == null)
             return false;
-        } else {
+         else {
             return new Date(lastRefreshDate).compareTo(getMaxRefreshTime(date))>0;
         }
     }
@@ -147,11 +147,10 @@ public class DataRepository {
                     setLastRefreshDate(new Date());
                     webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_SUCCESS);
                 } else {
-                    if(pageNumber == 1)
-                        webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NOTHING_FOUND);
-                    else {
-                        webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NO_MORE_RESULTS);
-                    }
+                    if(pageNumber == 1) webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NOTHING_FOUND);
+
+                    else webServiceMessageCallStatus.postValue(WebServiceMessage.ON_RESPONSE_NO_MORE_RESULTS);
+
                 }
             }
 
@@ -255,12 +254,12 @@ public class DataRepository {
 
     public void bookmarkProject(ModelBaseGitHubProject baseGitHubProject) {
         new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.INSERT_BOOKMARK)
-                .execute();
+                .execute(Utils.changeProjectType(baseGitHubProject));
     }
 
     public void deleteSavedRepo(ModelSavedGitHubProject savedGitHubProject) {
         new SavedTableAsyncTask(savedProjectsDao, ActionTypeSaved.DELETE_SAVED)
-                .execute();
+                .execute(savedGitHubProject);
     }
 
     public void deleteAllSavedRepos(){

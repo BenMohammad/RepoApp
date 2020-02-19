@@ -69,19 +69,25 @@ public class MainActivity extends AppCompatActivity
                     showDots();
                     break;
                 case ON_FAILURE:
-                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.fail_to_load_main, Snackbar.LENGTH_SHORT)
+                            .setAction("b f", null)
+                            .show();
                     stopDots();
                     break;
                 case ON_RESPONSE_SUCCESS:
                     stopDots();
                     break;
                 case ON_RESPONSE_NOTHING_FOUND:
-                    Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main, mainActivityViewModel.getSearchTerm()), Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.drawer_layout), getString(R.string.nothing_found_main, mainActivityViewModel.getSearchTerm()), Snackbar.LENGTH_SHORT)
+                            .setAction("n f", null)
+                            .show();
                     stopDots();
                     adapter.setList(Collections.emptyList());
                     break;
                 case ON_RESPONSE_NO_MORE_RESULTS:
-                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.no_more_main, Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(findViewById(R.id.drawer_layout), R.string.no_more_main, Snackbar.LENGTH_SHORT)
+                            .setAction("n f", null)
+                            .show();
                     stopDots();
                     break;
                     default:
@@ -185,7 +191,6 @@ public class MainActivity extends AppCompatActivity
                 break;
             case SHOW_MORE:
                 mainActivityViewModel.loadMore();
-
                 break;
             case GO_TO_DETAILS:
                 startActivity(Utils.createDetailsIntent(MainActivity.this, cachedGitHubProject));

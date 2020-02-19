@@ -44,9 +44,8 @@ public class MainActivityViewModel extends AndroidViewModel {
                             webServiceStatus.postValue(WebServiceMessage.UPDATING_STATUS);
                             break;
                         case ON_FAILURE:
-                            if(pageCounter > 1) {
+                            if(pageCounter > 1) pageCounter--;
                                 webServiceStatus.postValue(WebServiceMessage.ON_FAILURE);
-                            }
                             break;
                         case ON_RESPONSE_SUCCESS:
                             webServiceStatus.postValue(WebServiceMessage.ON_RESPONSE_SUCCESS);
