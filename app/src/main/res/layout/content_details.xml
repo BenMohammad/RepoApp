@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.benmohammad.repoapp.ui.detailsscreen.DetailsActivity"
+    tools:showIn="@layout/activity_details">
+
+
+    <ImageView
+        android:id="@+id/iv_owner_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:padding="@dimen/avatar_drawable_padding"
+        android:background="@drawable/black_rounded_background"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/ic_error"
+        android:contentDescription="@string/image_of_the_repository_owner" />
+
+    <TextView
+        android:id="@+id/repo_owner_tv_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_owner_avatar"
+        android:layout_centerHorizontal="true"
+        android:layout_alignEnd="@+id/iv_owner_avatar"
+        android:layout_alignStart="@+id/iv_owner_avatar"
+        android:gravity="center_horizontal"
+        tools:text="Owner: Marko"
+        android:textColor="@color/whiteColor"
+        android:textSize="@dimen/repo_owner_text_size"
+        android:background="@drawable/rounded_transparent_black_background"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/buttons_layout"
+        android:layout_alignStart="@+id/iv_owner_avatar"
+        android:layout_alignEnd="@+id/iv_owner_avatar"
+        android:layout_below="@id/repo_owner_tv_details"
+        android:layout_marginTop="@dimen/view_code_top_margin"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/action_details"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:layout_marginEnd="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            style="?android:attr/buttonBarButtonStyle"
+            android:background="@drawable/white_rounded_button_selector"
+            android:textSize="@dimen/action_button_text_size"
+            tools:drawableLeft="@drawable/bookmarks_24dp"
+            android:padding="5dp"
+            tools:text="Bookmark"
+            />
+
+        <Button
+            android:id="@+id/view_code_btn_details"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:textColor="@color/black"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_height="wrap_content"
+            android:drawablePadding="1dp"
+            android:padding="5dp"
+            android:drawableRight="@drawable/view_code_24dp"
+            android:background="@drawable/white_rounded_button_selector"
+            android:text="@string/view_code" />
+
+    </LinearLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/buttons_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/repo_name_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Repo Name"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/rounded_gray_background"
+                android:textColor="@color/whiteColor"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/repo_size_tv_details"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                tools:text="Repository Size: 12345 KB"
+                />
+
+            <TextView
+                android:id="@+id/prog_lang_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Written in: Java"
+                />
+
+            <TextView
+                android:id="@+id/score_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Score: 123.1235"
+                />
+
+            <TextView
+                android:id="@+id/forks_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Forks count: 123"
+                android:drawableEnd="@drawable/share_black_15dp"
+                />
+
+            <TextView
+                android:id="@+id/created_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Created at: 12.05.2016 at 03:45"
+                />
+
+            <TextView
+                android:id="@+id/updated_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Updated at at: 12.05.2016 at 03:45"
+                />
+
+            <TextView
+                android:id="@+id/pushed_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Pushed at: 12.05.2016 at 03:45"
+                />
+
+            <TextView
+                android:id="@+id/has_wiki_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:drawableRight="@drawable/ic_check_circle_green_24dp"
+                android:text="@string/has_wiki_details" />
+
+            <TextView
+                android:id="@+id/description_tv_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Project description: wiki, wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,wiki,"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

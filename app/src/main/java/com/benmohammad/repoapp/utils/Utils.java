@@ -1,5 +1,9 @@
 package com.benmohammad.repoapp.utils;
 
+import android.content.Intent;
+
+import com.benmohammad.repoapp.data.database.ModelSavedGitHubProject;
+
 import org.ocpsoft.prettytime.PrettyTime;
 
 import java.text.ParseException;
@@ -23,5 +27,9 @@ public class Utils {
         else {
             return "N/A";
         }
+    }
+
+    public static ModelSavedGitHubProject projectFromIntent(Intent parentIntent) {
+        return null;
     }
 }
