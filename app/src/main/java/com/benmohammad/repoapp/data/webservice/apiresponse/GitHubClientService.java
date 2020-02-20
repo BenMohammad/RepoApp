@@ -14,7 +14,7 @@ public interface GitHubClientService {
     int RESULTS_PER_PAGE = Configuration.RESULTS_PER_PAGE;
 
 
-    @Headers("User-Agent: giant2turtle@gmail.com")
+    //@Headers("User-Agent: giant2turtle@gmail.com")
     @GET("search/repositories")
     Call<GitHubRepo> getRepos(@Query("q") String searchParam, @Query("page") int page, @Query("per_page") int perPage);
 

@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onDestroy() {
         recyclerView.setAdapter(null);
-        searchView.setOnQueryTextListener(null);
+           searchView.setOnQueryTextListener(null);
         searchView = null;
         super.onDestroy();
     }

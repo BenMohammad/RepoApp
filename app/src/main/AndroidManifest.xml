@@ -25,6 +25,8 @@
         </activity>
         <activity android:name=".ui.detailsscreen.DetailsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ui.savedscreen.SavedProjectsActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
